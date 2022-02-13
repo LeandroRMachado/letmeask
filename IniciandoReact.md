@@ -54,3 +54,9 @@ yarn start
 instalação do firebase
 
 - yarn add firebase
+
+- yarn add node-sass (habilitar o scss)
+
+- yarn add react-router-dom (fazer o roteamento entre as paginas)
+
+- yarn add @types/react-router-dom (tipagens)
