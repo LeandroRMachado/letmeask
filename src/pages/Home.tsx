@@ -9,6 +9,7 @@ import { Button } from "../components/Button"
 import { useAuth } from "../hooks/userAuth"
 import { FormEvent, useState } from "react"
 import { database } from "../services/firebase"
+import { Toaster,toast } from "react-hot-toast"
 
 export function Home() {
   const history = useHistory(); // exemplo de hook(useHistory)
@@ -32,7 +33,7 @@ export function Home() {
       const roomRef = database.ref(`rooms/${roomCode}`).get()
 
       if(!(await roomRef).exists()) {
-        alert('Room does not exists')
+        toast.error("Room does not exists.")
         return
       }
 
@@ -72,6 +73,7 @@ export function Home() {
           </form>
         </div>
       </main>
+      <Toaster />
     </div>
 
   )
