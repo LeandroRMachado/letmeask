@@ -1,4 +1,5 @@
 import { FormEvent, useState } from "react"
+import toast, { Toaster } from "react-hot-toast"
 import { useParams } from "react-router-dom"
 // import {toast, ToastContainer} from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
@@ -31,11 +32,12 @@ export function Room() {
     event.preventDefault()
 
     if (newQuestion.trim() === '') {
+      toast.error("Write your question")
       return
     }
 
     if (!user) {
-      throw new Error('You must be logged in')
+      toast.error("Log in")
       // <div className="App">
       //   <ToastContainer />
       // </div>
@@ -129,6 +131,7 @@ export function Room() {
         })}
         </div>
       </main>
+     <Toaster/>
     </div>
   )
 }
